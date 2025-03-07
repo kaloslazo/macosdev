@@ -36,7 +36,8 @@
 - **[mechvibes](https://mechvibes.com/)** change keyboard sound
 - **[aerospace](https://nikitabobko.github.io/AeroSpace/guide)** tiling manager macos
 - **[raycast](https://www.raycast.com)** boost productivity macos
-- **[fantasque sans mono](https://formulae.brew.sh/cask/font-fantasque-sans-mono-nerd-font)** nerd font top
+- **[fantasque sans mono](https://formulae.brew.sh/cask/font-fantasque-sans-mono-nerd-font)** nerd font secondary
+- **[geist mono](https://vercel.com/font)** nerd font vercel primary
 - **[starship](https://starship.rs/)** shell prompt
 - **[skhd](https://github.com/koekeishiya/skhd)** keybinding manager
 
