@@ -1,0 +1,157 @@
+# #!/bin/bash
+
+# >> script additions
+source "$HOME/.config/sketchybar/colors.sh"
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
+
+# >> general variables
+PADDINGS=8
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+# >> colors
+export BLACK=0xff1b1b1b
+export WHITE=0xffcccccc
+export RED=0xffDF6B74
+export GREEN=0xff98C379
+export BLUE=0xff61AFEF
+export YELLOW=0xffE5BF7A
+export ORANGE=0xffd49a5f
+export MAGENTA=0xffC678DC
+export CYAN=0xff55B6C2
+export GREY=0xffCCCCCC
+export TRANSPARENT=0x00000000
+export BAR_COLOR=0xff282C34
+export BAR_BORDER_COLOR=0xff21252B
+export ICON_COLOR=$WHITE
+
+# >> look of bar
+sketchybar --bar \
+    margin=-10 \
+    y_offset=10 \
+    height=30 \
+    position=top \
+    corner_radius=8 \
+    color=$TRANSPARENT \
+    border_color=$TRANSPARENT \
+    display=all \
+    topmost=false \
+    sticky=true \
+    font_smoothing=true \
+    shadow=false
+
+# >> look of items
+sketchybar --default \
+    icon.font="FantasqueSansM Nerd Font:Bold:14.0" \
+    label.font="FantasqueSansM Nerd Font:Regular:14.0" \
+    label.color=$MAGENTA \
+    icon.color=$MAGENTA \
+    padding_left=0 \
+    padding_right=0 \
+    label.padding_left=5 \
+    label.padding_right=10 \
+    icon.padding_left=10 \
+    icon.padding_right=5 \
+    background.color=$BAR_COLOR \
+    background.padding_right=10 \
+    background.padding_left=10 \
+    background.corner_radius=8
+
+# >> items setup
+sketchybar --add item userhost left \
+    --set userhost icon="" \
+    --set userhost label="klm@mac" \
+    --set userhost icon.color=$BLUE \
+    --set userhost label.color=$BLUE \
+    --set userhost background.padding_left=0 \
+
+for i in {1..9}; do
+    sketchybar --add space space.$i left \
+        --set space.$i associated_space=$i \
+        --set space.$i icon=$i \
+        --set space.$i icon.font="FantasqueSansM Nerd Font:Bold:14.0" \
+        --set space.$i icon.padding_left=5 \
+        --set space.$i icon.padding_right=-5 \
+        --set space.$i background.padding_left=5 \
+        --set space.$i background.padding_right=0 \
+        --set space.$i script="$PLUGIN_DIR/space.sh" \
+        --set space.$i click_script="yabai -m space --focus $i"
+done
+
+sketchybar --add bracket spaces space.1 space.2 space.3 space.4 space.5 space.6 space.7 space.8 space.9 \
+           --set spaces background.color=$BAR_COLOR \
+                      background.height=28 \
+                      background.padding_left=10 \
+                      background.padding_right=6 \
+                      background.drawing=on
+
+sketchybar --add item date left \
+    --set date icon=" " \
+    --set date icon.color=$YELLOW \
+    --set date label.color=$YELLOW \
+    --set date script="$PLUGIN_DIR/date.sh" \
+
+sketchybar --add event front_app_switched \
+    --add item front_app left \
+    --set front_app icon=" " \
+    --set front_app icon.color=$MAGENTA \
+    --set front_app label.color=$MAGENTA \
+    --set front_app script="$PLUGIN_DIR/front_app.sh" \
+    --subscribe front_app front_app_switched
+
+sketchybar --add item music left \
+    --set music scroll_texts=on \
+    --set music icon="󰝚" \
+    --set music icon.color=$GREEN \
+    --set music label.color=$GREEN \
+    --set music script="$PLUGIN_DIR/music.sh" \
+    --set music label.max_chars=23 \
+    --set music update_freq=5 \
+    --set music associated_display=active
+
+sketchybar --add item clock right \
+    --set clock update_freq=10 \
+    --set clock icon="󰥔 " \
+    --set clock script="$PLUGIN_DIR/clock.sh" \
+    --set clock background.padding_right=0
+
+sketchybar --add item battery right \
+    --set battery update_freq=30 \
+    --set battery icon.color=$GREEN \
+    --set battery label.color=$GREEN \
+    --set battery script="$PLUGIN_DIR/battery.sh"
+
+sketchybar --add item wifi right \
+    --set wifi update_freq=10 \
+    --set wifi icon="󰤨 " \
+    --set wifi icon.color=$BLUE \
+    --set wifi label.color=$BLUE \
+    --set wifi script="$PLUGIN_DIR/wifi.sh"
+
+sketchybar --add item volume right \
+    --set volume update_freq=1 \
+    --set volume icon.color=$YELLOW \
+    --set volume label.color=$YELLOW \
+    --set volume script="$PLUGIN_DIR/volume.sh"
+
+sketchybar --add item cpu right \
+    --set cpu update_freq=5 \
+    --set cpu icon=" " \
+    --set cpu icon.color=$RED \
+    --set cpu label.color=$RED \
+    --set cpu script="$PLUGIN_DIR/cpu.sh"
+
+sketchybar --add item ram right \
+    --set ram update_freq=5 \
+    --set ram icon=" " \
+    --set ram icon.color=$ORANGE \
+    --set ram label.color=$ORANGE \
+    --set ram script="$PLUGIN_DIR/ram.sh"
+
+sketchybar --add item battery_cycles right \
+    --set battery_cycles update_freq=60 \
+    --set battery_cycles icon.color=$MAGENTA \
+    --set battery_cycles label.color=$MAGENTA \
+    --set battery_cycles script="$PLUGIN_DIR/battery_cycles.sh"
+
+# >> start scripts sketchybar
+sketchybar --update

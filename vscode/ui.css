@@ -1,0 +1,125 @@
+/* rounded corners for all ui elements */
+.editor-widget,
+.codeActionMenuWidget,
+.monaco-list-rows,
+.monaco-button,
+.action-label,
+.monaco-hover,
+.file-icon-themable-tree,
+.monaco-workbench .part,
+.tabs-container>.tab,
+.monaco-inputbox,
+.monaco-dropdown,
+.monaco-workbench .part>.title,
+.monaco-workbench .part.editor>.content .editor-group-container>.title,
+.monaco-menu,
+.search-widget,
+.find-widget,
+.monaco-dialog-box,
+.editor-group-container>.tabs-and-actions-container,
+.quick-input-widget,
+.suggest-widget,
+.suggest-details,
+.parameter-hints-widget,
+.notification-toast {
+    border-radius: 6px !important;
+}
+
+/* more specific rounded corners */
+.monaco-list-row {
+    border-radius: 4px !important;
+    margin: 2px 4px !important;
+}
+
+.tab {
+    border-radius: 6px 6px 0 0 !important;
+    margin-right: 3px !important;
+}
+
+/* improved scrollbars */
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px !important;
+    background-color: rgba(128, 128, 128, 0.3) !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent !important;
+}
+
+/* subtle shadows for floating elements */
+.monaco-hover,
+.monaco-editor .suggest-widget,
+.monaco-editor .parameter-hints-widget.visible,
+.notification-toast,
+.quick-input-widget {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+}
+
+/* cleaner sidebar and panels */
+.monaco-workbench .part.sidebar,
+.monaco-workbench .part.panel,
+.monaco-workbench .part.auxiliarybar {
+    margin: 2px !important;
+}
+
+/* refined editor area */
+.editor-container {
+    padding: 4px !important;
+}
+
+/* improved buttons */
+.monaco-button {
+    padding: 4px 10px !important;
+    transition: background-color 0.15s ease !important;
+}
+
+/* minimalist status bar */
+.part.statusbar {
+    height: 22px !important;
+    font-size: 11px !important;
+}
+
+/* smoother tabs */
+.tabs-container>.tab {
+    transition: background-color 0.15s ease !important;
+}
+
+/* cleaner notifications */
+.notification-toast {
+    padding: 6px !important;
+}
+
+/* refined input boxes */
+.monaco-inputbox {
+    padding: 4px 6px !important;
+}
+
+/* uniform padding for widgets */
+.suggest-widget {
+    padding: 3px !important;
+}
+
+/* lighter borders throughout ui */
+.monaco-editor,
+.monaco-workbench .part,
+.monaco-inputbox,
+.monaco-dialog-box {
+    border-color: rgba(128, 128, 128, 0.2) !important;
+}
+
+/* less visual noise in the tree view */
+.monaco-icon-label:before {
+    opacity: 0.8 !important;
+}
+
+/* cleaner find widget */
+.find-widget {
+    padding: 4px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}

@@ -1,0 +1,79 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$character"""
+
+palette = 'one_dark'
+
+[palettes.one_dark]
+black = '#282c34'
+red = '#e06c75'
+green = '#98c379'
+yellow = '#e5c07b'
+blue = '#61afef'
+purple = '#c678dd'
+cyan = '#56b6c2'
+white = '#abb2bf'
+bright_black = '#5c6370'
+bright_white = '#c8ccd4'
+
+[username]
+style_user = "fg:blue"
+style_root = "fg:red bold"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+style = "fg:green"
+format = "[@$hostname]($style) "
+ssh_only = false
+disabled = false
+
+[directory]
+style = "fg:purple"
+format = " [$path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "fg:purple"
+format = ' [$symbol$branch]($style)'
+
+[git_status]
+style = "fg:red"
+format = '[$all_status$ahead_behind]($style)'
+
+[python]
+symbol = " "
+style = "fg:yellow"
+format = ' [$symbol]($style)'
+
+[nodejs]
+symbol = " "
+style = "fg:green"
+format = ' [$symbol]($style)'
+
+[rust]
+symbol = " "
+style = "fg:red"
+format = ' [$symbol]($style)'
+
+[golang]
+symbol = " "
+style = "fg:cyan"
+format = ' [$symbol]($style)'
+
+[character]
+success_symbol = " [❯](fg:green)"
+error_symbol = " [❯](fg:red)"
+vimcmd_symbol = " [❮](fg:blue)"

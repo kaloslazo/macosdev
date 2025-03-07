@@ -1,0 +1,49 @@
+// configuración minimalista zellij
+themes {
+    maconedark {
+        fg 171 178 191     // #ABB2BF
+        bg 40 44 52        // #282C34
+        black 63 68 81     // #3F4451
+        red 224 108 117    // #E06C75
+        green 152 195 121  // #98C379
+        yellow 209 154 102 // #D19A66
+        blue 97 175 239    // #61AFEF
+        magenta 198 120 221 // #C678DD
+        cyan 86 182 194    // #56B6C2
+        white 215 218 224  // #D7DAE0
+        orange 209 154 102 // #D19A66
+    }
+}
+
+// usar tema one dark personalizado
+theme "maconedark"
+default_layout "compact"
+mouse_mode
+
+// simple ui relative distance instace arrows3
+simplified_ui true
+default_shell "zsh"
+
+// // aspecto visual minimalista
+// pane_frames false
+// simplified_ui true
+
+// // ocultar elementos innecesarios y redondear bordes
+// ui {
+//     pane_frames {
+//         rounded_corners true
+//         hide_session_name true
+//     }
+// }
+
+// // plugins mínimos necesarios - estilo compacto
+// plugins {
+//     compact-bar { path "zellij:compact-bar"; }
+//     tab-bar { path "zellij:tab-bar"; }
+// }
+
+// // configuración para macos
+// copy_command "pbcopy"
+
+// // desactivar pantalla de bienvenida
+// default_mode "normal"
